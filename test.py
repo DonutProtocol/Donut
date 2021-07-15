@@ -25,8 +25,7 @@ w3 = Web3(Web3.HTTPProvider(url))
 
 
 # print(b)
-
-# a = w3.eth.getTransactionCount("0x5933D89e0700c69D781bfeB4e5C5a9e4A866a048")
+a = w3.eth.getTransactionCount("0x5933D89e0700c69D781bfeB4e5C5a9e4A866a048")
 # print(a)
 
 # address = '0x5933D89e0700c69D781bfeB4e5C5a9e4A866a048'
