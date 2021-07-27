@@ -9,12 +9,6 @@ export default new VueRouter({
         redirect: '/home'
     }, {
         path: '/home',
-        component: () => import('../pages/home/home.vue'),
-    }, {
-        path: '/writers',
-        component: () => import('../pages/writers/writers.vue'),
-    }, {
-        path: '/TokenHolders',
-        component: () => import('../pages/TokenHolders/TokenHolders.vue'),
-    }, ]
+        component: () => import('../components/HelloWorld.vue'),
+    } ]
 })
