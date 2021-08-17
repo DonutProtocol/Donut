@@ -1,2 +1,23 @@
-# Donut Protocol
-Donut Protocol is an open source aggregated credit risk assessment system that introduces multiple types of data sources, creates a new credit scoring mechanism for individuals and institutions, provides an open middleware framework for the entire DeFi ecosystem (ie credit market), and builds cutting-edge credit evaluation model. 
+
+## 安装依赖库
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
