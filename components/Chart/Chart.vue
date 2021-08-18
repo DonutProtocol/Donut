@@ -32,19 +32,26 @@
       </div>
     </div>
     <div class="Chart-t">
-      <div id="myChart" :style="{ width: '100%', height: '100%' }"></div>
+      <div
+        id="myChart"
+        :style="{ width: '100%', height: '100%' }"
+        ref="myChart"
+        v-on-echart-resize
+      ></div>
     </div>
   </div>
 </template>
 
 <script>
+import elementResizeDetectorMaker from "element-resize-detector";
+import "./methodsdata";
 export default {
   props: ["showPop"],
   data() {
     return {
+      //时间设置
       startTime: "",
       endTime: "",
-
       pickerOptionsStart: {
         disabledDate: (time) => {
           if (this.endTime) {
@@ -66,14 +73,17 @@ export default {
   mounted() {
     this.drawLine();
     this.created();
-    // window.onresize = this.myChart.resize;
-    const that = this;
-    this.screenWidth = document.body.clientWidth;
-    window.onresize = () => {
-      return (() => {
-        that.screenWidth = document.body.clientWidth;
-      })();
-    };
+    let erd = elementResizeDetectorMaker();
+    let that = this;
+    erd.listenTo(document.getElementById("myChart"), (element) => {
+      let width = element.offsetWidth;
+      let height = element.offsetHeight;
+      console.log(width, height);
+      that.$nextTick(() => {
+        //使echarts尺寸重置
+        that.$echarts.init(document.getElementById("myChart")).resize();
+      });
+    });
   },
   methods: {
     //折线图
@@ -82,7 +92,6 @@ export default {
       let myChart = this.$echarts.init(document.getElementById("myChart"));
       // 绘制图表
       myChart.setOption({
-        backgroundColor: "",
         grid: {
           x: 80,
           y: 20,
@@ -100,9 +109,30 @@ export default {
         },
         series: [
           {
-            data: [1, 122, 131, 144, 190, 1200],
+            data: [1, 122, 131, 144, 190, 200],
             type: "line",
-            areaStyle: {},
+            areaStyle: {
+              normal: {
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 0.01,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(106, 144, 255, 0.4)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(134, 68, 249, 0.4)",
+                    },
+                  ],
+                  global: false, // 缺省为 false
+                },
+              },
+            },
           },
         ],
         tooltip: {
@@ -110,9 +140,11 @@ export default {
           trigger: "item", //出发方式
           formatter:
             "<span style='color: #1A1A1A;font-size: 14px;'>{b}<br/><span style='color: #666666;'>Balance in WAN:</span>{c}</span>",
+          axisPointer: {
+            type: "cross",
+          },
         },
       });
-      
     },
     //设置默认时间
 
