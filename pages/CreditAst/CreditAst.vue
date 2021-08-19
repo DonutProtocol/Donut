@@ -55,14 +55,18 @@
                   </div>
                 </div>
                 <div class="CreditAst-ss-or-so">
-                  <div class="CreditAst-ss-or-sol" style="color: #666666">Name</div>
+                  <div class="CreditAst-ss-or-sol" style="color: #666666">
+                    Name
+                  </div>
                   <div class="CreditAst-ss-or-sor">Maker: Deployer 1</div>
                 </div>
                 <div class="CreditAst-ss-or-so">
                   <div class="CreditAst-ss-or-sol" style="color: #666666">
                     Balance
                   </div>
-                  <div class="CreditAst-ss-or-sor">2.328374264107065155 ETH</div>
+                  <div class="CreditAst-ss-or-sor">
+                    2.328374264107065155 ETH
+                  </div>
                 </div>
                 <div class="CreditAst-ss-or-so">
                   <div class="CreditAst-ss-or-sol" style="color: #666666">
@@ -84,7 +88,7 @@
               </div>
             </div>
           </div>
-          <div class="CreditAst-ss-t">
+          <div class="CreditAst-ss-t" :class="{ Astsst: statuszs }">
             <div class="CreditAst-ss-tl" :class="{ Creditl: statuss }">
               <div class="CreditAst-ss-to">
                 <div class="CreditAst-ss-tol" @click="openr()">
@@ -116,9 +120,16 @@
               </div>
               <div class="CreditAst-ss-tt" @click="shrtat()">
                 <div class="CreditAst-ss-tt-l">
-                  <img src="../../assets/graph/Alerts/off.svg" />
+                  <img :src="Alertso" />
                 </div>
-                <div class="CreditAst-ss-tt-r" v-if="statuss == false">
+                <div
+                  class="CreditAst-ss-tt-r"
+                  v-if="statuss == false"
+                  :class="{
+                    CreditAsttr:
+                      rotates == true || this.Alertso == this.Alertss,
+                  }"
+                >
                   Alerts
                 </div>
                 <div
@@ -153,190 +164,61 @@
                 </div>
               </div>
             </div>
-            <div class="CreditAst-ss-tr" :class="{ Credittr: statuss }">
-              <div class="CreditAst-ss-tr-o">
-                <div class="CreditAst-ss-tr-ol">
-                  Recent month trading path chart
-                </div>
-                <div class="CreditAst-ss-tr-or">
-                  <div class="CreditAst-ss-tr-or-l">1Month</div>
-                  <div class="CreditAst-ss-tr-or-r">
-                    <img src="../../assets/graph/jtxb.png" />
-                  </div>
-                </div>
-              </div>
-              <div class="CreditAst-ss-tr-t">
-                <div class="CreditAst-ss-tr-tl">ETH</div>
-                <div
-                  class="CreditAst-ss-tr-tl"
-                  style="
-                    background: #ffffff;
-                    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
-                    color: #999999;
-                    margin-left: 15px;
-                  "
-                >
-                  POK
-                </div>
-                <div
-                  class="CreditAst-ss-tr-tl"
-                  style="
-                    background: #ffffff;
-                    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
-                    color: #999999;
-                    margin-left: 15px;
-                  "
-                >
-                  MATIC
-                </div>
-                <div
-                  class="CreditAst-ss-tr-tl"
-                  style="
-                    background: #ffffff;
-                    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
-                    color: #1a1a1a;
-                    margin-left: 15px;
-                  "
-                >
-                  WAN
-                </div>
-                <div
-                  class="CreditAst-ss-tr-tl"
-                  style="
-                    background: #ffffff;
-                    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2);
-                    color: #1a1a1a;
-                    margin-left: 15px;
-                  "
-                >
-                  ETC
-                </div>
-              </div>
-              <div class="CreditAst-ss-tr-s">
-                <table>
-                  <tr class="CreditAst-ss-tr-so">
-                    <td style="padding-left: 10px">Transaction</td>
-                    <td>Time</td>
-                    <td>From</td>
-                    <td>To</td>
-                    <td>Block Height</td>
-                    <td>Total Amount</td>
-                    <td>Confirmations</td>
-                  </tr>
-                  <tr>
-                    <td style="padding-left: 10px; color: #6a90ff">
-                      <span>6c9fc7882e43b4ef1hd3324</span>
-                    </td>
-                    <td>06-21-2021 12:18:32</td>
-                    <td><span>0x9bb8B4d6e37E4Chd3324</span></td>
-                    <td style="color: #6a90ff">
-                      <span>0xv3i5ozo8y85z3qhd3324</span>
-                    </td>
-                    <td style="color: #6a90ff">13085679</td>
-                    <td>5ETH</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td style="padding-left: 10px; color: #6a90ff">
-                      <span>6c9fc7882e43b4ef1hd3324</span>
-                    </td>
-                    <td>06-21-2021 12:18:32</td>
-                    <td><span>0x9bb8B4d6e37E4Chd3324</span></td>
-                    <td style="color: #6a90ff">
-                      <span>0xv3i5ozo8y85z3qhd3324</span>
-                    </td>
-                    <td style="color: #6a90ff">13085679</td>
-                    <td>5ETH</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td style="padding-left: 10px; color: #6a90ff">
-                      <span>6c9fc7882e43b4ef1hd3324</span>
-                    </td>
-                    <td>06-21-2021 12:18:32</td>
-                    <td><span>0x9bb8B4d6e37E4Chd3324</span></td>
-                    <td style="color: #6a90ff">
-                      <span>0xv3i5ozo8y85z3qhd3324</span>
-                    </td>
-                    <td style="color: #6a90ff">13085679</td>
-                    <td>5ETH</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td style="padding-left: 10px; color: #6a90ff">
-                      <span>6c9fc7882e43b4ef1hd3324</span>
-                    </td>
-                    <td>06-21-2021 12:18:32</td>
-                    <td><span>0x9bb8B4d6e37E4Chd3324</span></td>
-                    <td style="color: #6a90ff">
-                      <span>0xv3i5ozo8y85z3qhd3324</span>
-                    </td>
-                    <td style="color: #6a90ff">13085679</td>
-                    <td>5ETH</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td style="padding-left: 10px; color: #6a90ff">
-                      <span>6c9fc7882e43b4ef1hd3324</span>
-                    </td>
-                    <td>06-21-2021 12:18:32</td>
-                    <td><span>0x9bb8B4d6e37E4Chd3324</span></td>
-                    <td style="color: #6a90ff">
-                      <span>0xv3i5ozo8y85z3qhd3324</span>
-                    </td>
-                    <td style="color: #6a90ff">13085679</td>
-                    <td>5ETH</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td style="padding-left: 10px; color: #6a90ff">
-                      <span>6c9fc7882e43b4ef1hd3324</span>
-                    </td>
-                    <td>06-21-2021 12:18:32</td>
-                    <td><span>0x9bb8B4d6e37E4Chd3324</span></td>
-                    <td style="color: #6a90ff">
-                      <span>0xv3i5ozo8y85z3qhd3324</span>
-                    </td>
-                    <td style="color: #6a90ff">13085679</td>
-                    <td>5ETH</td>
-                    <td>16</td>
-                  </tr>
-                </table>
-                <div class="CreditAster-cs">
-                  <div class="CreditAster-csr">
-                    <div class="CreditAster-csr-r">Page</div>
-                    <input class="CreditAster-csr-c" />
-                    <div class="CreditAster-csr-r" style="margin-right: 8px">
-                      Go to
-                    </div>
-                    <div class="CreditAster-csr-r" style="margin-right: 18px">
-                      Last
-                    </div>
-                    <div class="CreditAster-csr-rl">
-                      <img src="../../assets/graph/jtyl.png" />
-                    </div>
-                    <div class="eighteen-rr">
-                      <div
-                        class="CreditAster-csr-rr"
-                        :class="{ csrrr: itme.state }"
-                        v-for="(itme, index) in List"
-                        :key="index"
-                        @click="switchos(itme)"
-                      >
-                        {{ itme.page }}
-                      </div>
-                    </div>
-                    <div class="CreditAster-csr-rl">
-                      <img src="../../assets/graph/jtzh.png" />
-                    </div>
-                    <div class="CreditAster-csr-r" style="margin-right: 8px">
-                      First
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="CreditAst-ss-tr-f">Balance Chart</div>
-              <div class="CreditAst-ss-tr-w"></div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="this.switList[0].status"
+            >
+              <TiondataView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="this.switList[1].status"
+            >
+              <HistoricalView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="this.switList[2].status"
+            >
+              <TransactionView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="this.switList[3].status"
+            >
+              <TradingView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="this.switList[4].status"
+            >
+              <BCSView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="selecto == true && this.Alertso == this.Alertss"
+            >
+              <LargeView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="selectt == true && this.Alertso == this.Alertss"
+            >
+              <RiskView />
+            </div>
+            <div
+              class="CreditAst-ss-tr"
+              :class="{ Credittr: statuss }"
+              v-if="selects == true && this.Alertso == this.Alertss"
+            >
+              <RiskView />
             </div>
           </div>
         </div>

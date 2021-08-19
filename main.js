@@ -8,9 +8,11 @@ import contractsFun from "./common/contractsFun";
 import getweb3 from "./common/globals.dbug"
 import store from './store/index'
 import axios from 'axios'
-// import BootstrapVue from 'bootstrap-vue'
-
-// Vue.use(BootstrapVue)
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import ElementResizeDetectorMaker from "element-resize-detector"
+Vue.prototype.$erd = ElementResizeDetectorMaker()
+Vue.use(ElementUI);
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 Vue.prototype.$Fun = contractsFun
