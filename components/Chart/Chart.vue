@@ -24,12 +24,12 @@
         >
         </el-date-picker>
       </div>
-      <div class="Chart-orr" style="margin-right: 50px">
+      <!-- <div class="Chart-orr" style="margin-right: 50px">
         <img src="../../assets/graph/fd.png" />
       </div>
       <div class="Chart-orl">
         <img src="../../assets/graph/sx.png" />
-      </div>
+      </div> -->
     </div>
     <div class="Chart-t">
       <div
@@ -73,6 +73,7 @@ export default {
   mounted() {
     this.drawLine();
     this.created();
+    //折线图宽度自适应重新绘制
     let erd = elementResizeDetectorMaker();
     let that = this;
     erd.listenTo(document.getElementById("myChart"), (element) => {
@@ -107,18 +108,28 @@ export default {
         yAxis: {
           type: "value",
         },
+        //缩放
+        dataZoom: [
+          {
+            type: "inside", //slider表示有滑动块的，inside表示内置的
+            show: false, 
+            xAxisIndex: [0],
+            start: 0,
+            end: 100,
+          },
+        ],
         series: [
           {
-            data: [1, 122, 131, 144, 190, 200],
+            data: [1, 122, 231, 344, 490, 2000],
             type: "line",
             areaStyle: {
               normal: {
                 color: {
-                  type: "linear",
+                  //填充内容渐变，由上到下
                   x: 0,
                   y: 0,
                   x2: 0,
-                  y2: 0.01,
+                  y2: 1,
                   colorStops: [
                     {
                       offset: 0,
@@ -133,6 +144,24 @@ export default {
                 },
               },
             },
+            //折点样式
+            symbolSize: 9,
+            lineStyle: {
+              color: "#6A90FF",
+              width: 4,
+            },
+            // 折线拐点的样式
+            itemStyle: {
+              normal: {
+                // 静止时：
+                color: "#6A90FF",
+              },
+              emphasis: {
+                // 鼠标经过时：
+                color: "#F94485",
+                borderColor: "#F94485",
+              },
+            },
           },
         ],
         tooltip: {
@@ -140,9 +169,10 @@ export default {
           trigger: "item", //出发方式
           formatter:
             "<span style='color: #1A1A1A;font-size: 14px;'>{b}<br/><span style='color: #666666;'>Balance in WAN:</span>{c}</span>",
-          axisPointer: {
-            type: "cross",
-          },
+          //鼠标移入显示横纵坐标数据
+          // axisPointer: {
+          //   type: "cross",
+          // },
         },
       });
     },
