@@ -12,6 +12,7 @@
           <div class="CreditAst-so-l">
             <div class="CreditAst-so-ll">
               <img src="../../assets/graph/search statistics.svg" />
+
             </div>
             <div class="CreditAst-so-lc">Search Statistics</div>
             <div class="CreditAst-so-lr">163,456,425</div>
@@ -28,6 +29,7 @@
           <div class="CreditAst-st-l">
             <div class="CreditAst-st-ll">
               <img src="../../assets/graph/Search Framework/search.svg" />
+
             </div>
             <div class="CreditAst-st-lr">
               <input placeholder="Search By Address" />
@@ -35,6 +37,7 @@
           </div>
           <div class="CreditAst-st-r">
             <img src="../../assets/graph/Search Framework/arrow-right.svg" />
+
           </div>
         </div>
         <div class="CreditAst-ss">
@@ -138,6 +141,7 @@
                   v-if="statuss == false"
                 >
                   <img src="../../assets/graph/jtx.png" />
+
                 </div>
               </div>
               <div class="CreditAst-ss-ts" v-if="rotates">
@@ -196,6 +200,7 @@
               class="CreditAst-ss-tr"
               :class="{ Credittr: statuss }"
               v-if="this.switList[4].status"
+              
             >
               <BCSView />
             </div>

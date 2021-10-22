@@ -8,68 +8,19 @@
         <div class="Chainer-co-l">To</div>
         <div class="Chainer-co-r">Amount</div>
       </div>
-      <div class="Chainer-ct">
+      <div class="Chainer-ct" v-for="(itme,index) in Transfer" :key="index">
         <div class="Chainer-ct-l" @click="tionInfos()">
-          <span>0xe56c7b89288d56</span>
+          <span>{{itme.blockHash}}</span>
         </div>
         <div class="Chainer-ct-c">06-10-202112:18:32</div>
-        <div class="Chainer-ct-l" @click="addresst()"><span>0xe56c7b89288d56</span></div>
+        <div class="Chainer-ct-l" @click="addresst()"><span>{{itme.from}}</span></div>
         <div class="Chainer-ct-l">
           <img src="../../assets/graph/Alerts/off.svg" class="Chainer-ct-ll" />
-          <span class="ct-l">SHIBA INU</span>
+          <span class="ct-l">{{itme.to}}</span>
         </div>
-        <div class="Chainer-ct-r">0 ETH</div>
+        <div class="Chainer-ct-r">{{itme.value}} ETH</div>
       </div>
-      <div class="Chainer-ct">
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-c">06-10-202112:18:32</div>
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-l">
-          <img src="../../assets/graph/Alerts/off.svg" class="Chainer-ct-ll" />
-          <span class="ct-l">SHIBA INU</span>
-        </div>
-        <div class="Chainer-ct-r">0 ETH</div>
-      </div>
-      <div class="Chainer-ct">
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-c">06-10-202112:18:32</div>
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-l">
-          <img src="../../assets/graph/Alerts/off.svg" class="Chainer-ct-ll" />
-          <span class="ct-l">SHIBA INU</span>
-        </div>
-        <div class="Chainer-ct-r">0 ETH</div>
-      </div>
-      <div class="Chainer-ct">
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-c">06-10-202112:18:32</div>
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-l">
-          <img src="../../assets/graph/Alerts/off.svg" class="Chainer-ct-ll" />
-          <span class="ct-l">SHIBA INU</span>
-        </div>
-        <div class="Chainer-ct-r">0 ETH</div>
-      </div>
-      <div class="Chainer-ct">
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-c">06-10-202112:18:32</div>
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-l">
-          <img src="../../assets/graph/Alerts/off.svg" class="Chainer-ct-ll" />
-          <span class="ct-l">SHIBA INU</span>
-        </div>
-        <div class="Chainer-ct-r">0 ETH</div>
-      </div>
-      <div class="Chainer-ct">
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-c">06-10-202112:18:32</div>
-        <div class="Chainer-ct-l"><span>0xe56c7b89288d56</span></div>
-        <div class="Chainer-ct-l">
-          <img src="../../assets/graph/Alerts/off.svg" class="Chainer-ct-ll" />
-          <span class="ct-l">SHIBA INU</span>
-        </div>
-        <div class="Chainer-ct-r">0 ETH</div>
-      </div>
+
       <div class="Chainer-cs">
         <div class="Chainer-csr">
           <div class="Chainer-csr-r">Page</div>
@@ -102,7 +53,7 @@
 
 <script>
 export default {
-  props: ["showPop"],
+  props: ["Transfer"],
   data() {
     return {
       List: [

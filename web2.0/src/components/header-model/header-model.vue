@@ -40,8 +40,9 @@
             type="button"
             class="btn btn1 btn-dark"
             style="margin-right: 10px"
+            @click="connect"
           >
-            Connect Wallet
+            {{ web3 ? account1 : " Connect Wallet" }}
           </button>
         </div>
       </div>
@@ -103,6 +104,7 @@ export default {
       web3: null,
       account: null,
       showLogin: false,
+      account1:''
     };
   },
   async created() {
@@ -131,7 +133,6 @@ export default {
         this.provider = null;
         this.account = null;
         this.childWeb3Method(this.account, this.web3);
-        this.$router.push("/Chain");
       } else {
         this.ethPrice = 0;
         clearInterval(this.CInterval);
@@ -144,6 +145,10 @@ export default {
             this.$store.state.web3 = web3;
             this.$store.state.account = accounts[0];
             this.account = accounts[0];
+            var str = this.account;
+            var str1 = str.substring(0, 6);
+            var str2 = str.substring(str.length - 4);
+            this.account1 = str1 + "..." + str2;
             this.childWeb3Method(this.account, this.web3);
             this.showStyle = true;
           });
@@ -151,13 +156,9 @@ export default {
       }
     },
     childWeb3Method(e, s) {
-      // this.$parent.web3Method(e, s);
-      console.log(e,"111212",s);
-    },
-    parentHandleclick(e) {
-      console.log(e);
-      this.connect();
-    },
+      this.$parent.web3Method(e, s);
+      console.log(e, "111212", s);
+    }
   },
 };
 </script>
