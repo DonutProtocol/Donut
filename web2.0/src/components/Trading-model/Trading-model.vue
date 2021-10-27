@@ -39,7 +39,11 @@
         </li>
       </ul>
     </div>
-    <div class="Trading-t"></div>
+    <div class="Trading-t">
+      <div class="Trading-t-img-box">
+        <img src="../../assets/img/47.png" alt="">
+      </div>
+    </div>
   </div>
 </template>
 
