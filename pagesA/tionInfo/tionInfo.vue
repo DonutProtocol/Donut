@@ -5,7 +5,7 @@
         <headerView pagesName="Chain" />
       </div>
       <div class="tionInfo-t">
-        tionInfo on Polygon and Polkadot will be accepted soon.
+        Address on celo and eth will be accepted soon.
       </div>
       <div class="container tionInfo-s">
         <div class="tionInfo-so">
@@ -14,14 +14,14 @@
               <img src="../../assets/graph/search statistics.svg" />
             </div>
             <div class="tionInfo-so-lc">Search Statistics</div>
-            <div class="tionInfo-so-lr">163,456,425</div>
+            <div class="tionInfo-so-lr">{{this.dataObj.searchStatistics}}</div>
           </div>
           <div class="tionInfo-so-r">
             <div class="tionInfo-so-ll">
               <img src="../../assets/graph/recent search.svg" />
             </div>
             <div class="tionInfo-so-lc">Recent Search</div>
-            <div class="tionInfo-so-lr">124,468</div>
+            <div class="tionInfo-so-lr">{{this.dataObj.recentSearch}}</div>
           </div>
         </div>
         <div class="tionInfo-st">
@@ -30,10 +30,10 @@
               <img src="../../assets/graph/Search Framework/search.svg" />
             </div>
             <div class="tionInfo-st-lr">
-              <input placeholder="Search By Address" />
+              <input placeholder="Search By Address" v-model="accounts"/>
             </div>
           </div>
-          <div class="tionInfo-st-r">
+          <div class="tionInfo-st-r" @click="searchs()">
             <img src="../../assets/graph/Search Framework/arrow-right.svg" />
           </div>
         </div>
@@ -45,20 +45,25 @@
               <img src="../../assets/graph/refresh-cw.svg"/>
             </div>
           </div>
-          <div class="tionInfo-ss-t">
+          <div class="pending" v-if="!pendingStauts">Loading...</div>
+          <div class="tionInfo-ss-t" v-if="pendingStauts">
             <div class="tionInfo-ss-to">
               <div class="tionInfo-ss-tol">
-                0x700a4824dba184a8c18d8565a67ddaa94e55fc9bbdb2f619f0af8e6e42e1e4b6
+                {{this.hash}}
               </div>
-              <div class="Address-sst-ro-c" @click="duplicates()">
-                <img src="../../assets/graph/fzz.png" />
+              <div class="Address-sst-ro-c">
+                <button id="hash" :data-clipboard-text="this.hash" @click="copys(1)">
+                  <img src="../../assets/graph/fzz.png" />
+                </button>
               </div>
-              <div class="Address-sst-ro-r">Copy</div>
+              <div class="Address-sst-ro-r">
+                <button id="hash" :data-clipboard-text="this.hash" @click="copys(1)">Copy</button>
+              </div>
             </div>
             <div class="Popup" v-if="states">Copied</div>
             <div class="tionInfo-ss-tt">
               <div class="tionInfo-ss-tt-l">Transaction Status</div>
-              <div class="tionInfo-ss-tt-r">Success</div>
+              <div class="tionInfo-ss-tt-r">{{this.transactionStatus}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Current Block</div>
@@ -66,12 +71,12 @@
                 class="tionInfo-ss-ts-r"
                 style="color: #6a90ff; font-weight: bold"
               >
-                13085532
+                {{this.currentBlock}}
               </div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Time</div>
-              <div class="tionInfo-ss-ts-r">07-08-2021 08:28:56</div>
+              <div class="tionInfo-ss-ts-r">{{this.time}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">To</div>
@@ -80,10 +85,13 @@
                   class="tionInfo-ss-ts-rl"
                   style="color: #6a90ff; font-weight: bold"
                 >
-                  0xeb44d16068048ef0d0bbc078fa53ba1214eb66e3
+                  {{this.to}}
                 </div>
                 <div class="tionInfo-ss-ts-rr">
-                  <img src="../../assets/graph/fzz.png" />
+                  <button id="to" :data-clipboard-text="this.to" @click="copys(2)">
+                    <img src="../../assets/graph/fzz.png" />
+                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -94,44 +102,49 @@
                   class="tionInfo-ss-ts-rl"
                   style="color: #6a90ff; font-weight: bold"
                 >
-                  0x78d5e220b4cc84f290fae4148831b371a851a114
+                  {{this.from}}
                 </div>
                 <div class="tionInfo-ss-ts-rr">
-                  <img src="../../assets/graph/fzz.png" />
+                  <button id="from" :data-clipboard-text="this.from" @click="copys(3)">
+                    <img src="../../assets/graph/fzz.png" />
+                  </button>
                 </div>
               </div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Amount Transacted</div>
-              <div class="tionInfo-ss-ts-r">875.998509 ETC</div>
+              <div class="tionInfo-ss-ts-r">{{this.amountTransacted}} {{this.symbol}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Gas usage</div>
-              <div class="tionInfo-ss-ts-r">21,000 (100.00%)</div>
+              <div class="tionInfo-ss-ts-r">{{this.gasUsage}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Gas usage max</div>
-              <div class="tionInfo-ss-ts-r">21,000</div>
+              <div class="tionInfo-ss-ts-r">{{this.gasUsageMax}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Gas Price</div>
-              <div class="tionInfo-ss-ts-r">0.000000071 ETC (71 Gwei)</div>
+              <div class="tionInfo-ss-ts-r">{{this.gasPrice}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Transaction Fees</div>
-              <div class="tionInfo-ss-ts-r">0.001491 ETC</div>
+              <div class="tionInfo-ss-ts-r">{{this.transactionFee}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Confirmations</div>
-              <div class="tionInfo-ss-ts-r">7356</div>
+              <div class="tionInfo-ss-ts-r">{{this.confirmations}}</div>
             </div>
             <div class="tionInfo-ss-ts">
               <div class="tionInfo-ss-ts-l">Nonce</div>
-              <div class="tionInfo-ss-ts-r">44</div>
+              <div class="tionInfo-ss-ts-r">{{this.nonce}}</div>
             </div>
             <div class="tionInfo-ss-ts" style="margin-bottom: 20px">
               <div class="tionInfo-ss-ts-l">Data Input</div>
-              <div class="tionInfo-ss-ts-r">0x</div>
+              <div class="tionInfo-ss-ts-r" style="cursor: pointer;">
+                {{this.input}}
+                <div class="Tips">{{this.input}}</div>
+              </div>
             </div>
           </div>
         </div>

@@ -6,11 +6,11 @@
           <div class="Chainser-coo-l">
             <div class="Chainser-coo-lo">
               <div class="Chainser-coo-lo-l">
-                <img src="../../assets/graph/true-usd 1.png" />
+                <img src="../../assets/graph/asset_USDT.png" />
               </div>
               <div class="Chainser-coo-lo-r">
-                <div class="Chainser-coo-lo-rs">TUSD</div>
-                <div class="Chainser-coo-lo-rx">16 TUSD</div>
+                <div class="Chainser-coo-lo-rs">USDT</div>
+                <div class="Chainser-coo-lo-rx">16 USDT</div>
               </div>
             </div>
             <div class="Chainser-coo-lt">$16</div>
@@ -29,7 +29,7 @@
                     </div>
                   </div>
                   <div class="Chainser-coo-rol-rt">
-                    0x9bb8B4d6e37E4C31E89C6f9e6bC9172D1384485B
+                    0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0
                   </div>
                 </div>
               </div>
@@ -79,11 +79,11 @@
           <div class="Chainser-coo-l">
             <div class="Chainser-coo-lo">
               <div class="Chainser-coo-lo-l">
-                <img src="../../assets/graph/UNI-V2.png" />
+                <img src="../../assets/graph/UBElogo.png" />
               </div>
               <div class="Chainser-coo-lo-r">
-                <div class="Chainser-coo-lo-rs">UNI-V2</div>
-                <div class="Chainser-coo-lo-rx">0 UNI-V2</div>
+                <div class="Chainser-coo-lo-rs">UBE</div>
+                <div class="Chainser-coo-lo-rx">0 UBE</div>
               </div>
             </div>
             <div class="Chainser-coo-lt">$0</div>
@@ -91,14 +91,14 @@
           <div class="Chainser-coo-r">
             <div class="Chainser-cto-rl">
               <div class="Chainser-coo-rol-l">
-                <img src="../../assets/graph/sushi.png" />
+                <img src="../../assets/graph/UBElogo.png" />
               </div>
               <div class="Chainser-coo-rol-r">
                 <div class="Chainser-coo-rol-ro">
-                  <div class="Chainser-coo-rol-ro-l">SushiSwap</div>
+                  <div class="Chainser-coo-rol-ro-l">UBESwap</div>
                 </div>
                 <div class="Chainser-coo-rol-rt">
-                  0x9bb8B4d6e37E4C31E89C6f9e6bC9172D1384485B
+                  0xE3D8bd6Aed4F159bc8000a9cD47CffDb95F96121
                 </div>
               </div>
             </div>

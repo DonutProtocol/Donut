@@ -1,7 +1,7 @@
 <template>
   <div class="BSB">
     <div class="BSB-ss-tr-o">
-      <div class="BSB-ss-tr-ol">BSC Score History Chart</div>
+      <div class="BSB-ss-tr-ol">CELO Score History Chart</div>
       <div class="BSB-ss-tr-or" @click="exhibits()">
         <div class="BSB-ss-tr-or-l">{{ downame }}</div>
         <div class="BSB-ss-tr-or-r" :class="{ Astss: dowstate }">
@@ -50,7 +50,7 @@
       <table>
         <tr style="background: #abbff9; font-weight: bold">
           <td>Transaction</td>
-          <td>BSC score</td>
+          <td>CELO score</td>
           <td style="padding-right: 20px; text-align: right">
             Transaction details
           </td>

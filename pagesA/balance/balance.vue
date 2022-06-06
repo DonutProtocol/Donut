@@ -5,7 +5,7 @@
         <headerView pagesName="Chain"/>
       </div>
       <div class="balance-t">
-        balance on Polygon and Polkadot will be accepted soon.
+        Address on celo and eth will be accepted soon.
       </div>
       <div class="container balance-s">
         <div class="balance-so">

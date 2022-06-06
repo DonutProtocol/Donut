@@ -5,7 +5,7 @@
         <headerView pagesName="Chain"/>
       </div>
       <div class="Transaction-t">
-        Address on Polygon and Polkadot will be accepted soon.
+        Address on celo and eth will be accepted soon.
       </div>
       <div class="container Transaction-s">
         <div class="Transaction-so">
@@ -49,11 +49,11 @@
               <div class="Transaction-coo-l">
                 <div class="Transaction-coo-lo">
                   <div class="Transaction-coo-lo-l">
-                    <img src="../../assets/graph/true-usd 1.png" />
+                    <img src="../../assets/graph/asset_USDT.png" />
                   </div>
                   <div class="Transaction-coo-lo-r">
-                    <div class="Transaction-coo-lo-rs">TUSD</div>
-                    <div class="Transaction-coo-lo-rx">16 TUSD</div>
+                    <div class="Transaction-coo-lo-rs">USDT</div>
+                    <div class="Transaction-coo-lo-rx">16 USDT</div>
                   </div>
                 </div>
                 <div class="Transaction-coo-lt">$16</div>
@@ -72,7 +72,7 @@
                         </div>
                       </div>
                       <div class="Transaction-coo-rol-rt">
-                        0x9bb8B4d6e37E4C31E89C6f9e6bC9172D1384485B
+                        0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0
                       </div>
                     </div>
                   </div>
@@ -121,7 +121,7 @@
           <div class="Transaction-sfc">
             <div class="Transaction-sfc-o">
               <div class="Transaction-sfc-ol">Amount Transacted</div>
-              <div class="Transaction-sfc-or">16 TUSD</div>
+              <div class="Transaction-sfc-or"></div>
             </div>
             <div class="Transaction-sfc-t">
               <div class="Transaction-sfc-tc">
@@ -140,25 +140,25 @@
               <div class="Transaction-sfc-sl" style="color: #6A90FF;"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl">06-21-2021 04:32:02</div>
-              <div class="Transaction-sfc-sl">11.3452 TUSD</div>
+              <div class="Transaction-sfc-sl">11.3452 USDT</div>
             </div>
             <div class="Transaction-sfc-s">
               <div class="Transaction-sfc-sl" style="color: #6A90FF;"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl">06-21-2021 04:32:02</div>
-              <div class="Transaction-sfc-sl">11.3452 TUSD</div>
+              <div class="Transaction-sfc-sl">11.3452 USDT</div>
             </div>
             <div class="Transaction-sfc-s">
               <div class="Transaction-sfc-sl" style="color: #6A90FF;"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl">06-21-2021 04:32:02</div>
-              <div class="Transaction-sfc-sl">11.3452 TUSD</div>
+              <div class="Transaction-sfc-sl">11.3452 USDT</div>
             </div>
             <div class="Transaction-sfc-s">
               <div class="Transaction-sfc-sl" style="color: #6A90FF;"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl"><span>13LGR1QjYkdi4adZV1Go123hygewdedg</span></div>
               <div class="Transaction-sfc-sl">06-21-2021 04:32:02</div>
-              <div class="Transaction-sfc-sl">11.3452 TUSD</div>
+              <div class="Transaction-sfc-sl">11.3452 USDT</div>
             </div>
           </div>
         </div>

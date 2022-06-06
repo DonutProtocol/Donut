@@ -1,6 +1,6 @@
 .Chainer {
     width: 100%;
-    height: 500px;
+    // height: 500px;
     margin-top: 30px;
     overflow: hidden;
 
@@ -8,7 +8,8 @@
         width: 90%;
         margin: auto;
         overflow: hidden;
-
+        border: 1px solid #E5E5E5;
+        margin-bottom: 50px;
         // box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
         .Chainer-co {
             width: 100%;
@@ -42,6 +43,7 @@
         }
 
         .Chainer-ct {
+            position: relative;
             width: 100%;
             height: 50px;
             line-height: 50px;
@@ -49,10 +51,9 @@
             color: #666666;
             font-size: 16px;
             border-bottom: 1px solid #E5E5E5;
-            border-left: 1px solid #E5E5E5;
-            border-right: 1px solid #E5E5E5;
-            overflow: hidden;
-
+            // border-left: 1px solid #E5E5E5;
+            // border-right: 1px solid #E5E5E5;
+            // overflow: hidden;
             .Chainer-ct-l {
                 width: 20%;
                 height: 100%;
@@ -88,12 +89,62 @@
                 .ct-l {
                     width: 100px;
                 }
+                .Tips{
+                    position: absolute;
+                    left: 2px;
+                    top: -20px;
+                    height: 50px;
+                    background-image: url("../../assets/graph/complete--address@3x.png"),  !important;
+                    background-size: 100% 100%;
+                    display: none;
+                    color: #fff;
+                    padding: 0 15px;
+                    line-height: 40px;
+                    font-size: 12px;
+                }
+                .Tips-t{
+                    position: absolute;
+                    left: 40%;
+                    top: -20px;
+                    height: 50px;
+                    background-image: url("../../assets/graph/complete--address@3x.png"),  !important;
+                    background-size: 100% 100%;
+                    display: none;
+                    color: #fff;
+                    padding: 0 15px;
+                    line-height: 40px;
+                    font-size: 12px;
+                }
+                .Tips-s{
+                    position: absolute;
+                    left: 60%;
+                    top: -20px;
+                    height: 50px;
+                    background-image: url("../../assets/graph/complete--address@3x.png"),  !important;
+                    background-size: 100% 100%;
+                    display: none;
+                    color: #fff;
+                    padding: 0 15px;
+                    line-height: 40px;
+                    font-size: 12px;
+                }
             }
-
+            .Chainer-ct-l:hover .Tips{
+                display: block;
+            }
+            .Chainer-ct-l:hover .Tips-t{
+                display: block;
+            }
+            .Chainer-ct-l:hover .Tips-s{
+                display: block;
+            }
             .Chainer-ct-c {
                 width: 20%;
                 height: 100%;
                 float: left;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .Chainer-ct-r {
@@ -102,7 +153,21 @@
                 float: right;
                 padding-right: 30px;
                 text-align: right;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
+        }
+
+        .pending {
+            width: 100%;
+            min-height: 500px;
+            line-height: 500px;
+            overflow: hidden;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 40px;
+            color: #666;
         }
 
         .Chainer-cs {
@@ -111,8 +176,8 @@
             // background: #6A90FF;
             overflow: hidden;
             border-bottom: 1px solid #E5E5E5;
-            border-left: 1px solid #E5E5E5;
-            border-right: 1px solid #E5E5E5;
+            // border-left: 1px solid #E5E5E5;
+            // border-right: 1px solid #E5E5E5;
 
             .Chainer-csr {
                 float: right;
@@ -177,4 +242,25 @@
             }
         }
     }
+}
+
+/deep/.el-pager li {
+    font-size: 16px;
+}
+
+/deep/.el-pagination__jump {
+    font-size: 16px !important;
+}
+
+// /deep/.el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon{
+//     font-size: 16px !important;
+// }
+/deep/.el-icon .el-icon-arrow-left {
+    font-size: 16px !important;
+}
+
+/deep/.el-pagination {
+    margin-top: 14px;
+    text-align: right;
+    margin-right: 36px;
 }

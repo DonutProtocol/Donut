@@ -5,7 +5,7 @@
         <headerView pagesName="Chain" />
       </div>
       <div class="Address-t">
-        Address on Polygon and Polkadot will be accepted soon.
+        Address on celo and eth will be accepted soon.
       </div>
       <div class="container Address-s">
         <div class="Address-so">

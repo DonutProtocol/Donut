@@ -40,21 +40,21 @@
                 margin: auto;
                 margin-top: 120px;
                 overflow: hidden;
+                display: flex;
+                justify-content:space-between;
 
                 .tionInfo-so-l {
                     height: 80px;
-                    float: left;
                     background: #FFFFFF;
                     -webkit-box-shadow: inset 0px 4px 4px rgb(0 0 0 / 20%);
                     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 20%);
                     border-radius: 80px;
                     overflow: hidden;
-
+                    display: flex;
                     .tionInfo-so-ll {
                         width: 50px;
                         height: 50px;
                         font-size: 0;
-                        float: left;
                         margin-left: 20px;
                         margin-top: 15px;
 
@@ -66,7 +66,7 @@
 
                     .tionInfo-so-lc {
                         margin-left: 25px;
-                        float: left;
+                        height: 30px;
                         color: #1A1A1A;
                         font-size: 18px;
                         padding-right: 20px;
@@ -79,7 +79,6 @@
                         font-weight: bold;
                         font-size: 24px;
                         margin-left: 20px;
-                        float: right;
                         line-height: 80px;
                         margin-right: 20px;
                         background-image: -webkit-gradient(linear, left top, right top, from(#6A90FF), to(#8644F9));
@@ -91,18 +90,16 @@
 
                 .tionInfo-so-r {
                     height: 80px;
-                    float: right;
                     background: #FFFFFF;
                     -webkit-box-shadow: inset 0px 4px 4px rgb(0 0 0 / 20%);
                     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 20%);
                     border-radius: 80px;
                     overflow: hidden;
-
+                    display: flex;
                     .tionInfo-so-ll {
                         width: 50px;
                         height: 50px;
                         font-size: 0;
-                        float: left;
                         margin-left: 20px;
                         margin-top: 15px;
 
@@ -114,7 +111,7 @@
 
                     .tionInfo-so-lc {
                         margin-left: 25px;
-                        float: left;
+                        height: 30px;
                         color: #1A1A1A;
                         font-size: 18px;
                         padding-right: 20px;
@@ -127,7 +124,6 @@
                         font-weight: bold;
                         font-size: 24px;
                         margin-left: 20px;
-                        float: right;
                         line-height: 80px;
                         margin-right: 20px;
                         background-image: -webkit-gradient(linear, left top, right top, from(#6A90FF), to(#8644F9));
@@ -173,7 +169,7 @@
                         margin-left: 20px;
                         margin-top: 28px;
                     }
-
+                    
                     .tionInfo-st-lr {
                         min-width: 80%;
                         height: 100%;
@@ -199,16 +195,16 @@
                 }
 
                 .tionInfo-st-r {
-                    width: 50px;
-                    height: 50px;
+                    width: 100px;
+                    height: 100%;
                     float: right;
-                    font-size: 0;
-                    margin-top: 15px;
-                    margin-right: 25px;
+                    cursor: pointer;
 
                     img {
-                        width: 100%;
-                        height: 100%;
+                        width: 50px;
+                        height: 50px;
+                        margin-top: 15px;
+                        margin-left: 25px;
                     }
                 }
             }
@@ -264,7 +260,15 @@
                     }
 
                 }
-
+                .pending {
+                    width: 100%;
+                    height: 730px;
+                    line-height: 300px;
+                    overflow: hidden;
+                    text-align: center;
+                    font-size: 40px;
+                    color: #666;
+                }
                 .tionInfo-ss-t {
                     position: relative;
                     width: 100%;
@@ -288,24 +292,36 @@
                         }
 
                         .Address-sst-ro-c {
-                            width: 20px;
+                            width: 30px;
                             height: 20px;
                             float: left;
                             cursor: pointer;
                             margin-left: 6px;
-
-                            img {
+                            font-size: 0;
+                            line-height: 0;
+                            margin-top: 10px;
+                            button{
                                 width: 100%;
                                 height: 100%;
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
                             }
                         }
 
                         .Address-sst-ro-r {
                             color: #666666;
                             font-size: 14px;
-                            margin-left: 6px;
+                            // margin-left: 6px;
                             float: left;
                             cursor: pointer;
+                            button{
+                                width: 100%;
+                                height: 100%;
+                                // background: none;
+                                // border: none;
+                            }
                         }
 
                     }
@@ -359,41 +375,74 @@
                         color: #666666;
                         font-size: 16px;
                         overflow: hidden;
+                        display: flex;
 
                         .tionInfo-ss-ts-l {
                             width: 300px;
                             height: 100%;
                             padding-left: 80px;
                             line-height: 50px;
-                            float: left;
                         }
 
                         .tionInfo-ss-ts-r {
-                            float: left;
                             color: #1A1A1A;
                             line-height: 50px;
                             overflow: hidden;
+                            flex: 1;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            padding-right: 20px;
+
+                            .Tips {
+                                position: absolute;
+                                left: 20%;
+                                bottom: 60px;
+                                width: 70%;
+                                display: none;
+                                overflow: hidden;
+                                background-image: url("../../assets/graph/complete--address@3x.png"),  !important;
+                                background-size: 100% 100%;
+                                color: #fff;
+                                font-size: 12px;
+                                white-space:normal;
+                                padding: 10px 20px 30px 20px;
+                                line-height: 20px;
+                                word-wrap:break-word;
+                            }
 
                             .tionInfo-ss-ts-rl {
                                 float: left;
                             }
 
                             .tionInfo-ss-ts-rr {
-                                width: 20px;
+                                width: 30px;
                                 height: 20px;
                                 float: left;
                                 cursor: pointer;
                                 margin-left: 6px;
-
-                                img {
+                                line-height: 0;
+                                margin-top: 15px;
+                                button{
                                     width: 100%;
                                     height: 100%;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
                                 }
                             }
+                        }
+
+                        .tionInfo-ss-ts-r:hover .Tips {
+                            display: block;
                         }
                     }
                 }
             }
         }
     }
+}
+button{
+    background: none;
+    border: none;
 }

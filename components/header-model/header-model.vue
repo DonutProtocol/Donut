@@ -35,13 +35,14 @@
             </li>
           </ul>
         </div>
+        <div class="Chains" v-if="connected!='Connect Wallet'">CELO</div>
         <div>
           <button
             type="button"
             class="btn btn1 btn-dark"
             style="margin-right: 10px"
           >
-            Connect Wallet
+            {{this.connected}}
           </button>
         </div>
       </div>
@@ -85,6 +86,7 @@ import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Connect from "web3connect";
 const infuraId = "46c87cdc0d264271b0f9555fcf55cfa5";
+const { ethereum } = window; // window info
 export default {
   // 定义上面HTML模板中使用的变量
   props: ["pagesName"],
@@ -103,11 +105,26 @@ export default {
       web3: null,
       account: null,
       showLogin: false,
+      connected:'Connect Wallet',
+      PARAMSHECO: [
+        //heco-chain-Info
+        {
+          chainId: "0xA4EC", // 42220 in decimal
+          chainName: "Celo Mainnet",
+          rpcUrls: ["https://forno.celo.org"],
+          nativeCurrency: {
+            name: "Celo Mainnet",
+            symbol: "CELO",
+            decimals: 18,
+          },
+          blockExplorerUrls: ["https://explorer.celo.org"],
+        },
+      ],
     };
   },
   async created() {
-    console.log(this.pagesName);
-    if (this.web3Connect.cachedProvider) this.connect();
+    // if (this.web3Connect.cachedProvider) 
+    this.connect();
   },
   // 当前Vue组件被创建时回调的hook 函数
   methods: {
@@ -145,18 +162,54 @@ export default {
             this.$store.state.account = accounts[0];
             this.account = accounts[0];
             this.childWeb3Method(this.account, this.web3);
-            this.showStyle = true;
           });
         });
       }
     },
     childWeb3Method(e, s) {
-      // this.$parent.web3Method(e, s);
-      console.log(e,"111212",s);
+      s.eth.net.getId().then((res) => {
+        //chain id
+        this.chainId = res;
+        if (this.chainId == 42220) {
+          var str1 = e.substring(0, 6);
+          var str2 = e.substring(e.length - 4);
+          this.connected=str1 + "..." + str2;
+          this.showStyle = true;
+          this.$parent.web3Method(e, s);
+        } 
+        else {
+          this.connected = "Connect Wallet";
+          this.SWITCHCHAIMIDHECO(e,s);
+        }
+      });
     },
-    parentHandleclick(e) {
-      console.log(e);
-      this.connect();
+    async SWITCHCHAIMIDHECO(e,s) {
+      var params = this.PARAMSHECO;
+      if (this.chainId != 42220) {
+        try {
+          await ethereum.request({
+            method: "wallet_addEthereumChain",
+            params,
+          });
+        } catch (error) {
+          // 取消添加链,再次唤醒添加链
+        }
+      }
+      s.eth.net.getId().then((res) => {
+          //chain id
+          this.chainId = res;
+          if (this.chainId == 42220) {
+            var str1 = e.substring(0, 6);
+            var str2 = e.substring(e.length - 4);
+            this.connected=str1 + "..." + str2;
+            this.$parent.web3Method(e, s);
+            this.showStyle = true;
+          }
+          else{
+            // 取消切换链,再次唤醒切换链
+            this.SWITCHCHAIMIDHECO(e,s);
+          }
+        })
     },
   },
 };
