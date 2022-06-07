@@ -6,7 +6,7 @@
         <div class="Chart-olc">
           <el-date-picker
             v-model="startTime"
-            placeholder="开始日期"
+            placeholder="Start date"
             value-format="yyyy-MM-dd"
             format="yyyy-MM-dd"
             :picker-options="pickerOptionsStart"
@@ -18,7 +18,7 @@
         <div class="Chart-olc">
           <el-date-picker
             v-model="endTime"
-            placeholder="结束日期"
+            placeholder="End date"
             value-format="yyyy-MM-dd"
             format="yyyy-MM-dd"
             :picker-options="pickerOptionsEnd"
@@ -192,7 +192,6 @@ export default {
           state: false,
         },
       ],
-      //时间
       startTime: "",
       endTime: "",
       pickerOptionsStart: {
@@ -232,21 +231,17 @@ export default {
     exhibits() {
       this.dowstate = !this.dowstate;
     },
-    //设置默认时间
-
     GetDateStr(AddDayCount) {
       var dd = new Date();
-      dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期
+      dd.setDate(dd.getDate() + AddDayCount); 
       var y = dd.getFullYear();
       var m =
-        dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1; //获取当前月份的日期，不足10补0
-      var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate(); //获取当前几号，不足10补0
+        dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1; 
+      var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate(); 
       return y + "-" + m + "-" + d + " " + "00:00:00";
     },
     created() {
-      //日期时间选择器中的开始时间为一周前
       this.startTime = this.GetDateStr(0);
-      //默认结束时间为明天
       this.endTime = this.GetDateStr(0);
     },
     switchs(e) {
