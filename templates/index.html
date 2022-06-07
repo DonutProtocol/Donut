@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <!--include css files start -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/animate.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/simple-line-icons.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/font.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/app.css" type="text/css" />
+
+        <!--include js files start-->
+        <script src="/static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/static/js/app.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="/static/js/app.plugin.js" type="text/javascript"></script>
+
+        <script src="/static/js/jquery.flot.min.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.flot.tooltip.min.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.flot.resize.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.flot.orderBars.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.flot.pie.min.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.flot.grow.js" type="text/javascript"></script>
+        <script src="/static/js/demo.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-lg-12">
+                <section class="panel panel-default">
+                    <header class="panel-heading font-bold">
+                        Test Tool
+                    </header>
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="POST" action="/search/">
+                            <div class="col-lg-6">
+                                <input name="address" type="text" class="form-control m-b" placeholder="wallet address"
+                                value="0x5933D89e0700c69D781bfeB4e5C5a9e4A866a048">
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input name="start" type="text" class="form-control m-b" placeholder="start block number"
+                                        value="10534620">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input name="end" type="text" class="form-control m-b" placeholder="end block number"
+                                        value="10534500">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="submit" class="btn btn-primary btn-block">Test Score</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-6">
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        My Score
+                    </header>
+                    <div class="panel-body text-center">
+                        <!-- <h5>62.5<small> hrs</small></h5> -->
+                        <small class="text-muted block">1000 block recently</small>
+                        <div class="inline m-b-lg">
+                            <div class="easypiechart" data-percent="75" data-bar-color="#fcc633" data-line-width="16" data-loop="false" data-size="188">
+                                <div>
+                                    <span class="h2 m-l-sm step">75</span>Score
+                                    <!-- <div class="text text-sm">new</div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="panel-footer"><small>% of avarage rate of the Conversion</small></div> -->
+                </section>
+            </div>
+            <div class="col-lg-6">
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        Score Detail
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-pie"  style="height:240px"></div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-12">
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        Transactions Detail
+                    </header>
+                    <div class="table-responsive">
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>Txn Hash</th>
+                                    <th>Block</th>
+                                    <!-- <th>Age</th> -->
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Value</th>
+                                    <!-- <th>Gas Fee</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in transactions%}
+                                <tr>
+                                    <td>
+                                        <a href="https://etherscan.io/tx/{{ item.blockHash }}">
+                                            {{ item.blockHash }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="https://etherscan.io/block/{{ item.blockNumber }}">
+                                            {{ item.blockNumber }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="https://etherscan.io/address/{{ item.from }}">
+                                            {{ item.from }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="https://etherscan.io/address/{{ item.to }}">
+                                            {{ item.to }}
+                                        </a>
+                                    </td>
+                                    <td>{{ item.value }}</td>
+                                    <!-- <td>{{ item.gas }}</td> -->
+                                </tr>
+                                {% endfor %}
+
+                                {% if transactions|length <= 0 %}
+                                <tr>
+                                    <td colspan="7">No more transactions...</td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
