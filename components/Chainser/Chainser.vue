@@ -122,7 +122,6 @@ export default {
   data() {
     return {};
   },
-  // 当前Vue组件被创建时回调的hook 函数
   methods: {
     Jumptction(){
       this.$router.push('/Transaction');

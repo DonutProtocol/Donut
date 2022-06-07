@@ -65,8 +65,6 @@ export default {
         },
       ],
       currentPage3: 1,
-      // currentPage: 1, //当前页
-      // pageSize: 10, //每页条数
     };
   },
   mounted() {
@@ -78,7 +76,6 @@ export default {
     )[0].childNodes[0].nodeValue = "Go to";
   },
   methods: {
-    //分页
     handleSizeChange(val) {
       this.pageSize = val;
       this.$emit("tofatheresize", val);
@@ -100,7 +97,6 @@ export default {
       this.$router.push("/Address");
     },
     tionInfos(e) {
-      // this.$router.push("/tionInfo");
       this.$router.push({
         path: "/tionInfo",
         query: {

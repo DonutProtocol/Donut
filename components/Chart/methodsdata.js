@@ -18,14 +18,10 @@ function bind(el) {
         }
         chart.resize();
     }
-    //监听window窗体变化，更新echarts大小
-    //window.addEventListener("resize", el[HANDLER])
-    //监听绑定的div大小变化，更新echarts大小
     elementResizeDetectorMaker().listenTo(el,el[HANDLER])
     
 }
 function unbind(el) {
-    //window.removeEventListener("resize", el[HANDLER]);
     elementResizeDetectorMaker().removeListener(el,el[HANDLER])
     delete el[HANDLER];
 }

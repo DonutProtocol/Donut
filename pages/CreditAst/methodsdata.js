@@ -60,7 +60,7 @@ export default {
                 },
                 {
                     src: BCSs,
-                    name: 'BCS',
+                    name: 'CELO',
                     state: 4,
                     status: false,
                 },
@@ -117,7 +117,6 @@ export default {
         this.Alertso = this.Alerts;
     },
     methods: {
-        //左边按钮切换
         switchs(itme) {
             console.log(itme)
             
@@ -177,7 +176,6 @@ export default {
                 this.Alertso = this.Alerts;
             }
         },
-        //左边收缩
         Putaway() {
             for (var i in this.switList) {
                 this.switList[i].name = "";
@@ -186,7 +184,6 @@ export default {
             this.statuss = true;
             this.rotates = false;
         },
-        //右边展开
         openr() {
             this.filter = filter;
             this.statuss = false;

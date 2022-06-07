@@ -5,7 +5,7 @@
         <headerView pagesName="CreditAst" />
       </div>
       <div class="CreditAst-t">
-        Address on Polygon and Polkadot will be accepted soon.
+        Address on celo and eth will be accepted soon.
       </div>
       <div class="container CreditAst-s">
         <div class="CreditAst-so">
@@ -65,7 +65,7 @@
                     Balance
                   </div>
                   <div class="CreditAst-ss-or-sor">
-                    2.328374264107065155 ETH
+                    2.328374264107065155 CELO
                   </div>
                 </div>
                 <div class="CreditAst-ss-or-so">
@@ -230,7 +230,6 @@
 <script>
 import methodsData from "./methodsdata";
 export default {
-  // 定义上面HTML模板中使用的变量
   mixins: [methodsData],
   name: "CreditAst",
 };

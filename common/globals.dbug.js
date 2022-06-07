@@ -1,7 +1,5 @@
 export default {
-    //provideFrom 提供流动性方法(包含WBTC,以及WETH)
-    // 参数:(contract初始化出来的合约方法,web3js方法,account钱包地址,amount金额,minShare未知参数合约方法需要,callback返回值)
-    async Approve(addr, web3, value, contract, account, callback) { //授权
+    async Approve(addr, web3, value, contract, account, callback) { 
         console.log(addr, value, contract.methods)
         const gas = await contract.methods
             .approve(
@@ -13,7 +11,7 @@ export default {
             })
         const gasPrice = await web3.eth.getGasPrice();
         await contract.methods
-            .approve(addr, web3.utils.toWei(value.toString(), "ether")).send({ //授权方法
+            .approve(addr, web3.utils.toWei(value.toString(), "ether")).send({ 
                 from: account,
                 gas: gas,
                 gasPrice: gasPrice
@@ -23,7 +21,7 @@ export default {
                 callback(res);
             })
     },
-    async provide(contract, web3, account, amount, minMint, callback, errback) { //weth提供流动性
+    async provide(contract, web3, account, amount, minMint, callback, errback) { 
         const gas = await contract.methods
             .provide(web3.utils.toWei(minMint.toString(), "ether"))
             .estimateGas({
@@ -45,7 +43,7 @@ export default {
                 errback(err)
             });
     },
-    async WBTCprovide(contract, web3, account, amount, minMint, callback, errback) { //WBTC提供流动性
+    async WBTCprovide(contract, web3, account, amount, minMint, callback, errback) { 
         // const gas = await contract.methods
         //     .provide(web3.utils.toWei(amount.toString(), "ether"), web3.utils.toWei(minMint.toString(), "ether"))
         //     .estimateGas({
@@ -66,7 +64,7 @@ export default {
                 errback(err)
             });
     },
-    async WITHDRAW(contract, web3, account, amount, maxBurn, callback) { //赎回流动性WITHDRAW
+    async WITHDRAW(contract, web3, account, amount, maxBurn, callback) { 
         console.log(web3, amount, maxBurn)
         // const gas = await contract.methods
         //     .withdraw(web3.utils.toWei(amount.toString(), "ether"), web3.utils.toWei(maxBurn.toString(), "ether"))
@@ -86,7 +84,7 @@ export default {
                 callback(res)
             });
     },
-    async create(contract, web3, account, period, amount, Strike, optionType, callback, errback) { //购买期权
+    async create(contract, web3, account, period, amount, Strike, optionType, callback, errback) { 
         console.log(contract, period, amount, Strike, optionType)
         // const gas = await contract.methods
         //     .create(period, amount, Strike, optionType)
@@ -109,7 +107,7 @@ export default {
                 errback(err)
             });
     },
-    async exercise(contract, web3, account, optionID, callback, errback) { //期权行权
+    async exercise(contract, web3, account, optionID, callback, errback) { 
         const gas = await contract.methods
             .exercise(optionID)
             .estimateGas({
@@ -130,7 +128,7 @@ export default {
                 errback(err)
             });
     },
-    async StakingETHBuy(contract, web3, account, amount, callback) { //质押ETH通证
+    async StakingETHBuy(contract, web3, account, amount, callback) { 
         console.log(web3.utils.toWei(amount.toString(), "ether"))
         // const gas = await contract.methods
         //     .buy(amount).estimateGas({
@@ -149,7 +147,7 @@ export default {
                 callback(res)
             });
     },
-    async latestAnswer(contract, allback) { //获取最新汇率
+    async latestAnswer(contract, allback) { 
         await contract.methods.latestAnswer().call().then(res => {
             allback(res)
 
@@ -164,20 +162,19 @@ export default {
     },
     async totalBalance(contract, allback) {
         // console.log(await contract.methods.name())
-        await contract.methods.totalBalance().call().then(res => { //获取当前池子流动性
+        await contract.methods.totalBalance().call().then(res => { 
             console.log(res)
             allback(res)
         })
     },
     async shareOf(contract, account, callback) {
-        await contract.methods.shareOf(account).call().then(res => { //获取当前池子流动性
+        await contract.methods.shareOf(account).call().then(res => { 
             console.log(res)
             callback(res)
         })
     },
-    async withdraw(contract, web3, account, amount, maxBurn, callback, errback) { // 赎回当前流动性
+    async withdraw(contract, web3, account, amount, maxBurn, callback, errback) { 
 
-        console.log(amount, 'llll')
         // const gas = await contract.methods
         //     .withdraw(amount, maxBurn).estimateGas({
         //         from: account,
@@ -195,7 +192,7 @@ export default {
                 errback(err)
             });
     },
-    async claimProfit(contract, web3, account, callback) { //领取奖励
+    async claimProfit(contract, web3, account, callback) { 
         // const gas = await contract.methods.claimProfit().estimateGas({
         //     from: account,
         // })

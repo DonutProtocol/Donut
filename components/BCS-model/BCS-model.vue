@@ -237,7 +237,6 @@ export default {
         }
       }
     },
-    //列表隐藏显示
     hideyc(e) {
       console.log(e);
       if (e == 1) {

@@ -5,7 +5,7 @@
       <div class="Chart-olc">
         <el-date-picker
           v-model="startTime"
-          placeholder="开始日期"
+          placeholder="Start date"
           value-format="yyyy-MM-dd"
           format="yyyy-MM-dd"
           :picker-options="pickerOptionsStart"
@@ -17,7 +17,7 @@
       <div class="Chart-olc">
         <el-date-picker
           v-model="endTime"
-          placeholder="结束日期"
+          placeholder="End date"
           value-format="yyyy-MM-dd"
           format="yyyy-MM-dd"
           :picker-options="pickerOptionsEnd"
@@ -49,7 +49,6 @@ export default {
   props: ["showPop"],
   data() {
     return {
-      //时间设置
       startTime: "",
       endTime: "",
       pickerOptionsStart: {
@@ -73,7 +72,6 @@ export default {
   mounted() {
     this.drawLine();
     this.created();
-    //折线图宽度自适应重新绘制
     let erd = elementResizeDetectorMaker();
     let that = this;
     erd.listenTo(document.getElementById("myChart"), (element) => {
@@ -81,17 +79,13 @@ export default {
       let height = element.offsetHeight;
       console.log(width, height);
       that.$nextTick(() => {
-        //使echarts尺寸重置
         that.$echarts.init(document.getElementById("myChart")).resize();
       });
     });
   },
   methods: {
-    //折线图
     drawLine() {
-      // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart"));
-      // 绘制图表
       myChart.setOption({
         grid: {
           x: 80,
@@ -108,10 +102,9 @@ export default {
         yAxis: {
           type: "value",
         },
-        //缩放
         dataZoom: [
           {
-            type: "inside", //slider表示有滑动块的，inside表示内置的
+            type: "inside", 
             show: false, 
             xAxisIndex: [0],
             start: 0,
@@ -125,7 +118,6 @@ export default {
             areaStyle: {
               normal: {
                 color: {
-                  //填充内容渐变，由上到下
                   x: 0,
                   y: 0,
                   x2: 0,
@@ -140,24 +132,20 @@ export default {
                       color: "rgba(134, 68, 249, 0.4)",
                     },
                   ],
-                  global: false, // 缺省为 false
+                  global: false, 
                 },
               },
             },
-            //折点样式
             symbolSize: 9,
             lineStyle: {
               color: "#6A90FF",
               width: 4,
             },
-            // 折线拐点的样式
             itemStyle: {
               normal: {
-                // 静止时：
                 color: "#6A90FF",
               },
               emphasis: {
-                // 鼠标经过时：
                 color: "#F94485",
                 borderColor: "#F94485",
               },
@@ -165,32 +153,29 @@ export default {
           },
         ],
         tooltip: {
-          show: true, //鼠标移入是否触发数据
-          trigger: "item", //出发方式
+          show: true,
+          trigger: "item", 
           formatter:
             "<span style='color: #1A1A1A;font-size: 14px;'>{b}<br/><span style='color: #666666;'>Balance in WAN:</span>{c}</span>",
-          //鼠标移入显示横纵坐标数据
+          
           // axisPointer: {
           //   type: "cross",
           // },
         },
       });
     },
-    //设置默认时间
 
     GetDateStr(AddDayCount) {
       var dd = new Date();
-      dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期
+      dd.setDate(dd.getDate() + AddDayCount);
       var y = dd.getFullYear();
       var m =
-        dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1; //获取当前月份的日期，不足10补0
-      var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate(); //获取当前几号，不足10补0
+        dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1; 
+      var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate(); 
       return y + "-" + m + "-" + d + " " + "00:00:00";
     },
     created() {
-      //日期时间选择器中的开始时间为一周前
       this.startTime = this.GetDateStr(0);
-      //默认结束时间为明天
       this.endTime = this.GetDateStr(0);
     },
   },

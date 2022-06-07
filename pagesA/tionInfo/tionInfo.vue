@@ -156,7 +156,6 @@
 <script>
 import methodsData from "./methodsdata";
 export default {
-  // 定义上面HTML模板中使用的变量
   mixins: [methodsData],
   name: "tionInfo",
 };
