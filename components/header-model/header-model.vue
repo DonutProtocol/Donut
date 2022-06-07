@@ -88,7 +88,6 @@ import Web3Connect from "web3connect";
 const infuraId = "46c87cdc0d264271b0f9555fcf55cfa5";
 const { ethereum } = window; // window info
 export default {
-  // 定义上面HTML模板中使用的变量
   props: ["pagesName"],
   data() {
     return {
@@ -126,7 +125,6 @@ export default {
     // if (this.web3Connect.cachedProvider) 
     this.connect();
   },
-  // 当前Vue组件被创建时回调的hook 函数
   methods: {
     homeBtn() {
       this.$router.push("/Chain");
@@ -192,7 +190,7 @@ export default {
             params,
           });
         } catch (error) {
-          // 取消添加链,再次唤醒添加链
+          console.log(error)
         }
       }
       s.eth.net.getId().then((res) => {
@@ -206,7 +204,6 @@ export default {
             this.showStyle = true;
           }
           else{
-            // 取消切换链,再次唤醒切换链
             this.SWITCHCHAIMIDHECO(e,s);
           }
         })
